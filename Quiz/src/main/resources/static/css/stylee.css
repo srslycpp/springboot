@@ -136,7 +136,7 @@ body
 	background-color: #c83237;
 }
 
-.fb
+.skype
 {
 	margin: 10px;
 	width: 105px;
@@ -145,26 +145,26 @@ body
 	float: left;
 }
 
-.fb:hover
+.skype:hover
 {
 	background-color: #3557a2;
 }
 
-.gplus
+.git
 {
 	margin: 10px;
 	width: 105px;
 	height: 142px;
-	background-color: #d95333;
+	background-color: #24292e;
 	float: left;
 }
 
-.gplus:hover
+.git:hover
 {
-	background-color: #c84222;
+	background-color: #13181d;
 }
 
-.tw
+.drop
 {
 	margin: 10px;
 	width: 105px;
@@ -173,7 +173,7 @@ body
 	float: left;
 }
 
-.tw:hover
+.drop:hover
 {
 	background-color: #2084c2;
 }

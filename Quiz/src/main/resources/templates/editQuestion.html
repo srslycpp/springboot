@@ -23,28 +23,13 @@
 
 <div id="container">
    <div class="rectangle">
-      <div id="logo"><a href="/index"><h1>Srslycpp.pl</h1></a></div>
+      <div id="logo"><a href="/"><h1>Srslycpp.pl</h1></a></div>
       <div id="zegar"></div>
       <div style="clear: both;"></div>
    </div>
 
-      <form th:action="@{addQuestion}" th:object="${question}" method="post">
-         <input th:type="number" th:field="*{id}" placeholder="Enter here Question's id"><br>
 
-         <input type="hidden" th:value="${question.id}" th:field="*{id}"/>
-
-         <input th:type="text" th:field="*{question}" placeholder="Enter here your Question"><br>
-         <input th:type="text" th:field="*{odpA}" placeholder="Enter here Answer A">
-         <input th:type="text" th:field="*{odpB}" placeholder="Enter here Answer B"><br>
-         <input th:type="text" th:field="*{odpC}" placeholder="Enter here Answer C">
-         <input th:type="text" th:field="*{odpD}" placeholder="Enter here Answer D"><br>
-         <input th:type="text" th:field="*{goodAnswer}" placeholder="Enter here Right Answer"><br>
-         <input th:type="text" th:field="*{category}" placeholder="Enter here Question's Category"><br>
-         <input th:type="text" th:field="*{year}" placeholder="Enter here Question's Year"><br>
-         <input type="submit" value="Submit">
-      </form>
-
-      <a href="/allQuestions">Show All</a>
+      <a href="allQuestions">Show All</a>
    <div style="clear: both;"></div>
    <div class="rectangle">2018 &copy; Srslycpp.pl <i class="icon-mail-alt"></i> me@srslycpp.pl</div>
 

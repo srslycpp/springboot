@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.srslycpp.Quiz.Entity.Questions;
 import pl.srslycpp.Quiz.Service.QuestionService;
 
@@ -68,11 +70,18 @@ public class QuizController {
 		return "oneQuestion";
 	}
 
-	@GetMapping("/projects/quiz/addQuestion")
-	public String addNewQuestion (@ModelAttribute("question") Questions question, Model model){
+	@PostMapping("/projects/quiz/addQuestion")
+	public String addNewQuestion (Questions question){
 		//model.addAttribute(question.setQuestion();)
 		questionService.addQuestion(question);
 		return "addQuestion";
 	}
 
+	@GetMapping("/editQuestion")
+	public String editQuestion (@RequestParam("id") Long id){
+		Questions questions = questionService.editQuestion(id);
+
+		return "editQuestion";
+
+	}
 }

@@ -43,5 +43,10 @@ public class QuestionService {
            return questionsRepository.save(questions);
     }
 
+    public Questions editQuestion (Long id){
+        Questions question = questionsRepository.findById(id).get();
+        return question;
+
+    }
 
 }
