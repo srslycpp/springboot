@@ -17,8 +17,6 @@ public class Questions {
 
 	@Column(name = "tresc")
 	private String question;
-	@Column(name = "answer")
-	private String goodAnswer;
 	@Column(name = "odpa")
 	private String odpA;
 	@Column(name = "odpb")
@@ -27,20 +25,23 @@ public class Questions {
 	private String odpC;
 	@Column(name = "odpd")
 	private String odpD;
+	@Column(name = "odpowiedz")
+	private String goodA;
 	@Column(name = "kategoria")
 	private String category;
 	@Column(name = "rok")
 	private int year;
 
 	public Questions() {
-	}
+		this.goodA = "X";
+	} // Until i will find the cause; every time i get null
 
-	public Questions(Long id, String question, String goodAnswer, String odpA, String odpB, String odpC, String odpD,
+	public Questions(Long id, String question, String goodA, String odpA, String odpB, String odpC, String odpD,
 					 String category, int year) {
 		super();
 		this.id = id;
 		this.question = question;
-		this.goodAnswer = goodAnswer;
+		this.goodA = goodA;
 		this.odpA = odpA;
 		this.odpB = odpB;
 		this.odpC = odpC;
@@ -66,12 +67,12 @@ public class Questions {
 		this.question = question;
 	}
 
-	public String getGoodAnswer() {
-		return goodAnswer;
+	public String getGoodA() {
+		return goodA;
 	}
 
-	public void setGoodAnswer(String goodAnswer) {
-		goodAnswer = goodAnswer;
+	public void setGoodA(String goodA) {
+		goodA = goodA;
 	}
 
 	public String getOdpA() {

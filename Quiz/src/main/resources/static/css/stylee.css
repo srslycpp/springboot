@@ -116,11 +116,11 @@ body
 .icon
 {
 	margin: 10px;
-	width: 10px;
-	height: 10px;
-	background-color: white;
+	width: 30px;
+	height: 30px;
+	color: white;
 	float: left;
-	color:white;
+
 }
 .yt
 {
@@ -224,14 +224,20 @@ table.blueTable thead tr {
   text-align: left;
 
 .links {
+  float: right;
   font-weight: bold;
   border-top: 2px solid #444444;
   text-align: right;
 }
 .links a{
+}
   display: inline-block;
   background: #1C6EA4;
   color: #FFFFFF;
   padding: 2px 8px;
   border-radius: 5px;
+}
+input[type=text], input[type=selection] {
+    border: none;
+    border-bottom: 2px solid white;
 }

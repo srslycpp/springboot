@@ -23,13 +23,28 @@
 
 <div id="container">
    <div class="rectangle">
-      <div id="logo"><a href="/"><h1>Srslycpp.pl</h1></a></div>
+      <div id="logo"><a href="/index"><h1>Srslycpp.pl</h1></a></div>
       <div id="zegar"></div>
       <div style="clear: both;"></div>
    </div>
 
+      <form th:action="@{editQuestion}" th:object="${question}" method="post">
+         <input th:type="number" th:field="*{id}" placeholder="Enter here Question's id"><br>
 
-      <a href="allQuestions">Show All</a>
+         <input type="hidden" th:value="${question.id}" th:field="*{id}"/>
+
+         <input th:type="text" th:field="*{question}" placeholder="${question.question}"><br>
+         <input th:type="text" th:field="*{odpA}" placeholder="${question.odpA}">
+         <input th:type="text" th:field="*{odpB}" placeholder="${question.odpB}"><br>
+         <input th:type="text" th:field="*{odpC}" placeholder="${question.odpC}">
+         <input th:type="text" th:field="*{odpD}" placeholder="${question.odpD}"><br>
+         <input th:type="text" th:field="*{goodAnswer}" placeholder="${question.goodAnswer}"><br>
+         <input th:type="text" th:field="*{category}" placeholder="${question.category}"><br>
+         <input th:type="text" th:field="*{year}" placeholder="${question.year}"><br>
+         <input type="submit" value="Submit">
+      </form>
+
+      <a href="/allQuestions">Show All</a>
    <div style="clear: both;"></div>
    <div class="rectangle">2018 &copy; Srslycpp.pl <i class="icon-mail-alt"></i> me@srslycpp.pl</div>
 

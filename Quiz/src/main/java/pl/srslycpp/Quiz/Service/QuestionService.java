@@ -33,7 +33,7 @@ public class QuestionService {
 
     public boolean check(String ok, Long id) {
 
-        if (questionsRepository.findById(id).get().getGoodAnswer().equals(ok)) {
+        if (questionsRepository.findById(id).get().getGoodA().equals(ok)) {
             return true;
         }
         return false;

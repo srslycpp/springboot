@@ -55,12 +55,12 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-right-outline:before { content: '\e800';font-size: 76px; margin-top: 35px; } /* '' */
-.icon-down-outline:before { content: '\e801'; font-size: 76px; margin-top: 35px;} /* '' */
+.icon-right-outline:before { content: '\e800'; font-size: 30px; } /* '' */
+.icon-down-outline:before { content: '\e801'; font-size: 30px;} /* '' */
 .icon-block-outline:before { content: '\e802'; font-size: 76px; margin-top: 35px;} /* '' */
-.icon-plus-outline:before { content: '\e803'; font-size: 76px; margin-top: 35px;} /* '' */
+.icon-plus-outline:before { content: '\e803'; font-size: 30px;} /* '' */
 .icon-emo-thumbsup:before { content: '\e804'; font-size: 76px; margin-top: 35px;} /* '' */
-.icon-cancel-outline:before { content: '\e805'; font-size: 76px; margin-top: 35px;} /* '' */
+.icon-cancel-outline:before { content: '\e805'; font-size: 30px;} /* '' */
 .icon-scissors-outline:before { content: '\e806'; font-size: 76px; margin-top: 35px;} /* '' */
 .icon-user:before { content: '\e807'; font-size: 76px; margin-top: 35px;} /* '' */
 .icon-emo-coffee:before { content: '\e808'; font-size: 76px; margin-top: 35px;} /* '' */

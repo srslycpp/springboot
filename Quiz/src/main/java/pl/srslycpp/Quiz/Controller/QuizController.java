@@ -70,16 +70,25 @@ public class QuizController {
 		return "oneQuestion";
 	}
 
+	@GetMapping("/projects/quiz/addQuestion")
+	public String addNewQuestion (Model model){
+		model.addAttribute("addQuestion", new Questions());
+
+		return "addQuestion";
+	}
 	@PostMapping("/projects/quiz/addQuestion")
-	public String addNewQuestion (Questions question){
-		//model.addAttribute(question.setQuestion();)
-		questionService.addQuestion(question);
+	public String addingNewQuestion(@ModelAttribute("addQuestion") Questions addQuestion){
+		System.out.println(addQuestion.getCategory()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(addQuestion.getGoodA()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(addQuestion.getOdpA()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		questionService.addQuestion(addQuestion);
 		return "addQuestion";
 	}
 
-	@GetMapping("/editQuestion")
+//in progress
+	@GetMapping("/projects/quiz/editQuestion/{id}")
 	public String editQuestion (@RequestParam("id") Long id){
-		Questions questions = questionService.editQuestion(id);
+		questionService.editQuestion(id);
 
 		return "editQuestion";
 

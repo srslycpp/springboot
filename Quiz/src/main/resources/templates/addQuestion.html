@@ -23,29 +23,77 @@
 
 <div id="container">
    <div class="rectangle">
-      <div id="logo"><a href="/index"><h1>Srslycpp.pl</h1></a></div>
+      <div id="logo"><a href="/"><h1>Srslycpp.pl</h1></a></div>
       <div id="zegar"></div>
       <div style="clear: both;"></div>
    </div>
 
-      <form th:action="@{addQuestion}" th:object="${question}" method="post">
-         <input th:type="number" th:field="*{id}" placeholder="Enter here Question's id"><br>
+      <form th:action="@{addQuestion}" th:object="${addQuestion}" method="post">
+         <!--<input th:type="number" th:field="*{id}" placeholder="Enter here Question's id"><br>-->
 
-         <input type="hidden" th:value="${question.id}" th:field="*{id}"/>
+         <!--<input type="hidden" th:value="${question.id}" th:field="*{id}"/>-->
+         <textarea placeholder="Enter Your Question here" rows = "5" cols = "60" th:field = "*{question}" >... </textarea><br>
 
-         <input th:type="text" th:field="*{question}" placeholder="Enter here your Question"><br>
          <input th:type="text" th:field="*{odpA}" placeholder="Enter here Answer A">
          <input th:type="text" th:field="*{odpB}" placeholder="Enter here Answer B"><br>
          <input th:type="text" th:field="*{odpC}" placeholder="Enter here Answer C">
          <input th:type="text" th:field="*{odpD}" placeholder="Enter here Answer D"><br>
-         <input th:type="text" th:field="*{goodAnswer}" placeholder="Enter here Right Answer"><br>
-         <input th:type="text" th:field="*{category}" placeholder="Enter here Question's Category"><br>
-         <input th:type="text" th:field="*{year}" placeholder="Enter here Question's Year"><br>
+
+         <select th:field="*{goodA}"  >
+            <option value="" disabled selected >Select Good Answer</option>
+            <option value="programowanie">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+         </select><br>
+
+         <select th:field="*{category}" >
+            <option value="programowanie">Programowanie</option>
+            <option value="urzadzenia techniki komp">Urzadzenia techniki komp</option>
+            <option value="systemy operacyjne i sieci">Systemy operacyjne i sieci</option>
+            <option value="multimedia i grafika">Multimedia i grafika</option>
+         <option value="ogólne">Ogólne</option>
+         </select><br>
+
+         <select th:field="*{year}" >
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+         </select><br>
          <input type="submit" value="Submit">
       </form>
 
-      <a href="/allQuestions">Show All</a>
+   <div class="icon"><a href="/projects/quiz/allQuestions" shape="rect" ><i class="icon-down-outline"></i></a></div>
+   <div class="icon"><a href="/projects/quiz/oneQuestion" shape="rect" ><i class="icon-right-outline"></i></a></div>
    <div style="clear: both;"></div>
+      <div class="git">
+         <a href="https://github.com/srslycpp" target="_blank" class="sociallink"><i class="icon-github-circled-alt2"></i></a>
+      </div>
+      <div class="yt">
+         <a href="https://www.youtube.com" target="_blank" class="sociallink"><i class="icon-youtube"></i></a>
+      </div>
+      <div class="drop">
+         <a href="https://www.dropbox.com/pl/" target="_blank" class="sociallink"><i class="icon-dropbox"></i></a>
+      </div>
+      <div class="skype">
+         <a href="https://www.skype.com" target="_blank" class="sociallink"><i class="icon-skype"></i></a>
+      </div>
+
+   <div style="clear: both;"></div>
+
+<!--
+   <div style="clear: both;"></div>
+-->
    <div class="rectangle">2018 &copy; Srslycpp.pl <i class="icon-mail-alt"></i> me@srslycpp.pl</div>
 
       <!--
