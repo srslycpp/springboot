@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.srslycpp.Quiz.Entity.Questions;
 import pl.srslycpp.Quiz.Service.QuestionService;
 
@@ -37,12 +37,10 @@ public class QuizController {
 		return (long) Math.random();
 	}
 
-//	@GetMapping("/")
-//	public String index2(@ModelAttribute("questions") Questions questions, ModelMap model) {
-//		model.put("a", questions.getGoodAnswer());
-//		System.out.println(random +" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//		return "index";
-//	}
+	@GetMapping({"/", "/index"})
+	public String index() {
+		return "index";
+	}
 
 	@GetMapping("/projects")
 	public String showProjects(){
@@ -87,10 +85,14 @@ public class QuizController {
 
 //in progress
 	@GetMapping("/projects/quiz/editQuestion/{id}")
-	public String editQuestion (@RequestParam("id") Long id){
-		questionService.editQuestion(id);
-
+	public String editQuestion (@PathVariable("id") Long id, Model model){
+		System.out.println("<<<<<<<<<<<"+id);
+		model.addAttribute("editQuestion",questionService.editQuestion(id));
 		return "editQuestion";
-
+	}
+	@PostMapping("/project/quiz/editQuestion/editQuestion")
+	public String edittQuestion (@ModelAttribute("editQuestion")Questions editQuestion){
+		questionService.edittQuestion(editQuestion);
+		return "editQuestion";
 	}
 }

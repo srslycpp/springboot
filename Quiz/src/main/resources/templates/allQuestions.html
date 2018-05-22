@@ -34,7 +34,7 @@
     <table class="blueTable" th:each="question : ${questions}">
          <thead>
          <form>
-             <input type="radio" name="Qid" value="question.id">
+             <input type="radio" name="Qid" th:value="${question.id}">
          <td colspan="2" th:utext="'Q: ' +${question.question}"></td>
          </form>
          </thead>
