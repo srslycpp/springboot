@@ -23,18 +23,21 @@
            th:src="@{/js/timer.js}"></script>
 </head>
 
-<body onload="odliczanie();">
+<body>
 
 <div id="container">
    <div class="rectangle">
-      <div id="logo"><a href="/"><h1>Srslycpp.pl</h1></a></div>
+      <div id="logo"><a href="/homepage"><h1>Srslycpp.pl</h1></a></div>
       <div id="zegar"></div>
       <div style="clear: both;"></div>
    </div>
     <table class="blueTable" th:each="question : ${questions}">
          <thead>
-         <form>
-             <input type="radio" name="Qid" th:value="${question.id}">
+         <form action="#" th:action="@{/projects/quiz/editQuestion}"  method="post">
+             <input type="radio" name="id" th:value="${question.id}" th:field="*{questions}"/>
+<p th:text="'Id: ' +${question.id}" ></p>
+             <input value="Edit" type="submit" />
+             <input value="Delete" name="delete" type="submit" />
          <td colspan="2" th:utext="'Q: ' +${question.question}"></td>
          </form>
          </thead>

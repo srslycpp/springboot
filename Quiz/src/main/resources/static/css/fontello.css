@@ -63,7 +63,7 @@
 .icon-cancel-outline:before { content: '\e805'; font-size: 30px;} /* '' */
 .icon-scissors-outline:before { content: '\e806'; font-size: 76px; margin-top: 35px;} /* '' */
 .icon-user:before { content: '\e807'; font-size: 76px; margin-top: 35px;} /* '' */
-.icon-emo-coffee:before { content: '\e808'; font-size: 76px; margin-top: 35px;} /* '' */
+.icon-emo-coffee:before { content: '\e808'; font-size: 76px; margin-top: 1px;} /* '' */
 .icon-skype:before { content: '\e809'; font-size: 76px; margin-top: 35px;} /* '' */
 .icon-key:before { content: '\e80a'; font-size: 76px; margin-top: 35px;} /* '' */
 .icon-dropbox:before { content: '\e80b'; font-size: 76px; margin-top: 35px;} /* '' */

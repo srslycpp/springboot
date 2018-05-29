@@ -3,12 +3,11 @@ package pl.srslycpp.Quiz.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.srslycpp.Quiz.Entity.Questions;
 import pl.srslycpp.Quiz.Service.QuestionService;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class QuizController {
@@ -36,10 +35,17 @@ public class QuizController {
 
 		return (long) Math.random();
 	}
-
-	@GetMapping({"/", "/index"})
+	@GetMapping("/")
 	public String index() {
 		return "index";
+	}
+	@GetMapping("/homepage")
+	public String homepage() {
+		return "homepage";
+	}
+	@GetMapping("/interestingLings")
+	public String interestingLinks() {
+		return "interestingLinks";
 	}
 
 	@GetMapping("/projects")
@@ -71,7 +77,7 @@ public class QuizController {
 	@GetMapping("/projects/quiz/addQuestion")
 	public String addNewQuestion (Model model){
 		model.addAttribute("addQuestion", new Questions());
-
+		System.out.println("getMapping <---------------");
 		return "addQuestion";
 	}
 	@PostMapping("/projects/quiz/addQuestion")
@@ -79,20 +85,41 @@ public class QuizController {
 		System.out.println(addQuestion.getCategory()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		System.out.println(addQuestion.getGoodA()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		System.out.println(addQuestion.getOdpA()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("postMapping <---------------");
 		questionService.addQuestion(addQuestion);
 		return "addQuestion";
 	}
 
 //in progress
-	@GetMapping("/projects/quiz/editQuestion/{id}")
-	public String editQuestion (@PathVariable("id") Long id, Model model){
-		System.out.println("<<<<<<<<<<<"+id);
-		model.addAttribute("editQuestion",questionService.editQuestion(id));
+	@GetMapping("/projects/quiz/editQuestion")
+	public String alllQuestions(@ModelAttribute("question") Questions editQuestion,
+								Model model, HttpServletRequest request){
+		Long id = Long.parseLong(request.getParameter("id"));
+		//String string = request.getParameter("id");
+		System.out.println("<<<<<<<<<<<"+ id);
+		model.addAttribute("id", editQuestion.getId());
+		//System.out.println("???????????????????????????????"+id);
+		//questionService.editQuestion(id);
+		return "editQuestion";	}
+	@PostMapping(value = "/projects/quiz/editQuestion")
+	public String editQuestion (@ModelAttribute("questions") Questions editQuestion,
+								Model model,
+								HttpServletRequest request){
+		//Long id = Long.parseLong(request.getParameter("id"));
+		String string = request.getParameter("id");
+		System.out.println("<<<<<<<<<<<"+ string);
+		model.addAttribute("id", editQuestion.getId());
+		//model.addAttribute("editQuestion",questionService.editQuestion(id));
 		return "editQuestion";
 	}
 	@PostMapping("/project/quiz/editQuestion/editQuestion")
 	public String edittQuestion (@ModelAttribute("editQuestion")Questions editQuestion){
 		questionService.edittQuestion(editQuestion);
 		return "editQuestion";
+	}
+	@DeleteMapping(value = "delete" )
+	public String deleteQuestion(@ModelAttribute("id")Long id ){
+		questionService.deleteQuestion(id);
+		return "allQuestions";
 	}
 }

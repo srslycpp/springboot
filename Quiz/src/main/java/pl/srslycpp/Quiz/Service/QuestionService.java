@@ -51,5 +51,9 @@ public class QuestionService {
         Questions question = questionsRepository.save(editQuestions);
         return question;
     }
+    public void deleteQuestion(Long id){
+        questionsRepository.deleteById(id);
+    }
+
 
 }

@@ -23,21 +23,22 @@
 
 <div id="container">
    <div class="rectangle">
-      <div id="logo"><a href="/index"><h1>Srslycpp.pl</h1></a></div>
+      <div id="logo"><a href="/homepage"><h1>Srslycpp.pl</h1></a></div>
       <div id="zegar"></div>
       <div style="clear: both;"></div>
    </div>
 
-   <form th:action="@{editQuestion}" th:object="${editQuestion}" method="post">
+   <form th:action="@{/allQuestions}" th:object="${questions}" method="post">
       <!--<input th:type="number" th:field="*{id}" placeholder="Enter here Question's id"><br>-->
 
       <!--<input type="hidden" th:value="${question.id}" th:field="*{id}"/>-->
-      <textarea th:value="${editQuestion.question}" rows = "5" cols = "60" th:field = "*{question}" >... </textarea><br>
+      <p th:text="${questions.id}"><<<<<<<<<>>>>>>>>>></p>
+      <textarea th:value="${questions.question}" rows = "5" cols = "60" th:field = "*{question}" >... </textarea><br>
 
-      <input th:type="text" th:field="*{odpA}" th:value="${editQuestion.odpA}">
-      <input th:type="text" th:field="*{odpB}" th:value="${editQuestion.odpB}"><br>
-      <input th:type="text" th:field="*{odpC}" th:value="${editQuestion.odpC}">
-      <input th:type="text" th:field="*{odpD}" th:value="${editQuestion.odpD}"><br>
+      <input th:type="text" th:field="*{odpA}" th:value="${questions.odpA}" placeholder="aaaaa">
+      <input th:type="text" th:field="*{odpB}" th:value="${questions.odpB}"><br>
+      <input th:type="text" th:field="*{odpC}" th:value="${questions.odpC}">
+      <input th:type="text" th:field="*{odpD}" th:value="${questions.odpD}"><br>
 
       <select th:field="*{goodA}"  >
          <option value="" disabled selected >Select Good Answer</option>
